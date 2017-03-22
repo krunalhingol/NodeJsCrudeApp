@@ -8,6 +8,7 @@ onload = function(e) {
 }
 var updateHandler = function() {
     lis[i].childNodes[5].addEventListener('click', function() {
+        if(this.parentNode.childNodes[3].innerText.length >0 && this.parentNode.childNodes[1].innerText > 0){
         fetch('quotes/', {
             method: 'put',
             headers: {
@@ -21,9 +22,10 @@ var updateHandler = function() {
 
             })
         }).then(data => {
-            console.log(data)
-            window.location.reload(true)
+            console.log(data);
+            window.location.reload(true);
         });
+        }
     });
 }
 var deleteHandler = function() {
@@ -38,8 +40,8 @@ var deleteHandler = function() {
                 'quote': this.parentNode.childNodes[1].innerText,
             })
         }).then(data => {
-            console.log(data)
-            window.location.reload()
+            console.log(data);
+            window.location.reload();
         })
     });
 }
