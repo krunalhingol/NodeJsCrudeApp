@@ -5,27 +5,31 @@
   <title>My quotes app</title>
 </head>
 <body>
-  This quotes app was made with nodejs express mongodb and ejs.
+  This quotes app was made with NodeJs Express MongoDb and Ejs.
 
   <ul class="quotes">
   <% for(var i=0; i<quotes.length; i++) {%>
-    <li class="quote">
-      <span><%= quotes[i].quote %> - </span>
-      <span><%= quotes[i].name %></span>
+    <li id="<%= quotes[i]._id %>">
+      <span id="<%= quotes[i].quote %>"><%= quotes[i].quote %></span> -
+      <span id="<%= quotes[i].name %>"><%= quotes[i].name %></span>
+      <button id="update"> Edit </button>
+      <button id="delete"> Delete </button>
     </li>
   <% } %>
   </ul>
 
   <form action="/quotes" method="POST">
-    <input type="text" placeholder="name" name="name">
-    <input type="text" placeholder="quote" name="quote">
+    <input type="text" placeholder="name" name="name" id="name-input">
+    <input type="text" placeholder="quote" name="quote" id="quote-input">
     <button type="submit">Submit</button>
   </form>
 
-  <div>
+  <!-- <div>
   <h2>Edit</h2>
   <button id="update"> Edit </button>
-</div>
+  </div> -->
 <script src="main.js"></script>
+
+
 </body>
 </html>
