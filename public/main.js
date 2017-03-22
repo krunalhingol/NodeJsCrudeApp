@@ -1,14 +1,14 @@
 onload = function(e) {
-    lis = document.getElementsByTagName('li');
-    console.log(lis);
-    for (i = 0; i < lis.length; i++) {
+    listOfLiElements = document.getElementsByTagName('li');
+    console.log(listOfLiElements);
+    for (i = 0; i < listOfLiElements.length; i++) {
         updateHandler();
         deleteHandler();
     }
 }
 var updateHandler = function() {
-    lis[i].childNodes[5].addEventListener('click', function() {
-        if(this.parentNode.childNodes[3].innerText.length >0 && this.parentNode.childNodes[1].innerText > 0){
+    listOfLiElements[i].childNodes[5].addEventListener('click', function() {
+        if(document.getElementById("name-input").value.length >0 && document.getElementById("quote-input").value.length > 0){
         fetch('quotes/', {
             method: 'put',
             headers: {
@@ -29,7 +29,7 @@ var updateHandler = function() {
     });
 }
 var deleteHandler = function() {
-    lis[i].childNodes[7].addEventListener('click', function() {
+    listOfLiElements[i].childNodes[7].addEventListener('click', function() {
         fetch('quotes', {
             method: 'delete',
             headers: {
